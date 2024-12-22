@@ -1,0 +1,5 @@
+name: smocraft
+version: '1.0-SNAPSHOT'
+main: rocks.ashleigh.smocraft.Smocraft
+api-version: '1.21'
+bootstrapper: rocks.ashleigh.smocraft.SmocraftBootstrap
