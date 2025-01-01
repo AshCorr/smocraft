@@ -3,6 +3,8 @@ package rocks.ashleigh.smocraft.fishing;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
+import rocks.ashleigh.smocraft.Smocraft;
+import rocks.ashleigh.smocraft.SmocraftItemRegistry;
 import rocks.ashleigh.smocraft.fishing.reward.FishingCursedByTheSeaReward;
 import rocks.ashleigh.smocraft.fishing.reward.FishingDrownedReward;
 import rocks.ashleigh.smocraft.fishing.reward.FishingGuardianReward;
@@ -15,40 +17,40 @@ import rocks.ashleigh.smocraft.fishing.reward.FishingTridentReward;
 public class FishingLootTables {
     public static final FishingLootTable COMMON_FISH = FishingLootTable.of(
         new int[] { 775, 720, 640, 570 },
-        new FishingItemReward(new int[] { 35 }, Fishes.COD),
-        new FishingItemReward(new int[] { 25 }, Fishes.SALMON),
-        new FishingItemReward(new int[] { 13 }, Fishes.TROPICAL),
-        new FishingItemReward(new int[] { 27 }, Fishes.PUFFERFISH)
+        new FishingItemReward(new int[] { 35 }, SmocraftItemRegistry.COD.getItem()),
+        new FishingItemReward(new int[] { 25 }, SmocraftItemRegistry.SALMON.getItem()),
+        new FishingItemReward(new int[] { 13 }, SmocraftItemRegistry.TROPICAL_FISH.getItem()),
+        new FishingItemReward(new int[] { 27 }, SmocraftItemRegistry.PUFFERFISH.getItem())
+    );
+
+    public static final FishingLootTable UNCOMMON_FISH = FishingLootTable.of(
+        new int[] { 25, 75, 125, 175 },
+        new FishingItemReward(new int[] { 35 }, SmocraftItemRegistry.COD_UNCOMMON.getItem()),
+        new FishingItemReward(new int[] { 25 }, SmocraftItemRegistry.SALMON_UNCOMMON.getItem()),
+        new FishingItemReward(new int[] { 13 }, SmocraftItemRegistry.TROPICAL_FISH_UNCOMMON.getItem()),
+        new FishingItemReward(new int[] { 27 }, SmocraftItemRegistry.PUFFERFISH_UNCOMMON.getItem())
     );
 
     public static final FishingLootTable RARE_FISH = FishingLootTable.of(
         new int[] { 25, 75, 125, 175 },
-        new FishingItemReward(new int[] { 35 }, Fishes.COD_UNCOMMON),
-        new FishingItemReward(new int[] { 25 }, Fishes.SALMON_UNCOMMON),
-        new FishingItemReward(new int[] { 13 }, Fishes.TROPICAL_UNCOMMON),
-        new FishingItemReward(new int[] { 27 }, Fishes.PUFFERFISH_UNCOMMON)
-    );
-
-    public static final FishingLootTable LEGENDARY_FISH = FishingLootTable.of(
-        new int[] { 0, 25, 50, 75 },
-        new FishingItemReward(new int[] { 35 }, Fishes.COD_RARE),
-        new FishingItemReward(new int[] { 25 }, Fishes.SALMON_RARE),
-        new FishingItemReward(new int[] { 13 }, Fishes.TROPICAL_RARE),
-        new FishingItemReward(new int[] { 27 }, Fishes.PUFFERFISH_RARE)
+        new FishingItemReward(new int[] { 35 }, SmocraftItemRegistry.COD_RARE.getItem()),
+        new FishingItemReward(new int[] { 25 }, SmocraftItemRegistry.SALMON_RARE.getItem()),
+        new FishingItemReward(new int[] { 13 }, SmocraftItemRegistry.TROPICAL_FISH_RARE.getItem()),
+        new FishingItemReward(new int[] { 27 }, SmocraftItemRegistry.PUFFERFISH_RARE.getItem())
     );
 
     public static final FishingLootTable UNIQUE_FISH = FishingLootTable.of(
         new int[] { 0, 0, 15, 30 },
-        new FishingItemReward(new int[] { 6 }, Fishes.PUFFERFISH, true),
-        new FishingItemReward(new int[] { 12 }, Fishes.WHO_THAT_FISHEMON, true),
-        new FishingItemReward(new int[] { 12 }, Fishes.CLOWN_FISH, true),
-        new FishingItemReward(new int[] { 12 }, Fishes.HANDSOME_SQUIDWARD, true),
-        new FishingItemReward(new int[] { 12 }, Fishes.CATFISH, true),
-        new FishingItemReward(new int[] { 10 }, Fishes.SHARK, true),
-        new FishingItemReward(new int[] { 10 }, Fishes.RED_HERRING, true),
-        new FishingItemReward(new int[] { 10 }, Fishes.HSIF, true),
-        new FishingItemReward(new int[] { 12 }, Fishes.RUBBER_DUCKY, true),
-        new FishingItemReward(new int[] { 4 }, Fishes.THE_GREAT_OLD_ONE, true)
+        new FishingItemReward(new int[] { 6 }, SmocraftItemRegistry.GOLDEN_PUFFERFISH.getItem(), true),
+        new FishingItemReward(new int[] { 12 }, SmocraftItemRegistry.WHO_THAT_FISHEMON.getItem(), true),
+        new FishingItemReward(new int[] { 12 }, SmocraftItemRegistry.CLOWNFISH.getItem(), true),
+        new FishingItemReward(new int[] { 12 }, SmocraftItemRegistry.HANDSOME_SQUIDWARD.getItem(), true),
+        new FishingItemReward(new int[] { 12 }, SmocraftItemRegistry.CATFISH.getItem(), true),
+        new FishingItemReward(new int[] { 10 }, SmocraftItemRegistry.SHARK.getItem(), true),
+        new FishingItemReward(new int[] { 10 }, SmocraftItemRegistry.RED_HERRING.getItem(), true),
+        new FishingItemReward(new int[] { 10 }, SmocraftItemRegistry.HSIF.getItem(), true),
+        new FishingItemReward(new int[] { 12 }, SmocraftItemRegistry.RUBBER_DUCKY.getItem(), true),
+        new FishingItemReward(new int[] { 4 }, SmocraftItemRegistry.THE_GREAT_OLD_ONE.getItem(), true)
     );
 
     public static final FishingLootTable TREASURE = FishingLootTable.of(new int[] { 50 , 70 ,90, 110},
@@ -90,8 +92,8 @@ public class FishingLootTables {
     public static final FishingLootTable FISHING = FishingLootTable.of(
         null,
         COMMON_FISH,
+        UNCOMMON_FISH,
         RARE_FISH,
-        LEGENDARY_FISH,
         UNIQUE_FISH,
         TREASURE,
         JUNK,

@@ -15,6 +15,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerFishEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.loot.LootContext;
 import org.bukkit.util.Vector;
 
@@ -28,16 +29,18 @@ public class FishingEventListener implements Listener {
 
     @EventHandler
     public void onFish(PlayerFishEvent e) {
-        if (e.getState() != PlayerFishEvent.State.CAUGHT_FISH && e.getState() != PlayerFishEvent.State.CAUGHT_ENTITY && e.getState() != PlayerFishEvent.State.REEL_IN) {
+        if (e.getState() == PlayerFishEvent.State.FISHING || e.getState() == PlayerFishEvent.State.LURED || e.getState() == PlayerFishEvent.State.BITE || e.getState() == PlayerFishEvent.State.FAILED_ATTEMPT) {
             return;
         }
+
+        e.getCaught().remove();
 
         // This sucks, but I dont want to deal with storing active hooks indexed by players.
         List<FishHook> hooksOwnedByPlayer = e.getPlayer().getWorld().getEntitiesByClass(FishHook.class).stream().filter((hook) -> ((FishHook) hook).getShooter()
             .equals(e.getPlayer())).collect(Collectors.toList());
 
         for (FishHook hook : hooksOwnedByPlayer) {
-            if (hook.getWaitTime() > 0 || hook.getTimeUntilBite() > 0) {
+            if (hook.getState() != HookState.BOBBING || hook.getWaitTime() > 0 || hook.getTimeUntilBite() > 0) {
                 hook.remove();
                 continue;
             }
@@ -75,9 +78,9 @@ public class FishingEventListener implements Listener {
             ));
 
             FishHook hook = e.getPlayer().launchProjectile(FishHook.class, velocity);
-            hook.setLureTime(e.getHook().getMinLureTime(), e.getHook().getMaxFreezeTicks());
-            hook.setWaitTime(e.getHook().getMinWaitTime(), e.getHook().getMaxWaitTime());
+            hook.setLureTime(e.getHook().getMinLureTime(), e.getHook().getMaxLureTime());
             hook.setLureAngle(e.getHook().getMinLureAngle(), e.getHook().getMaxLureAngle());
+            hook.setWaitTime(e.getHook().getMinWaitTime(), e.getHook().getMaxWaitTime());
         }
     }
 }

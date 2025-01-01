@@ -1,0 +1,82 @@
+{
+    "model": {
+        "type": "minecraft:select",
+        "property": "minecraft:custom_model_data",
+        "fallback": {
+            "type": "minecraft:model",
+            "model": "minecraft:item/pufferfish"
+        },
+        "cases": [
+            {
+                "when": "golden_pufferfish",
+                "model": {
+                    "type": "minecraft:model",
+                    "model": "smocraft:item/golden_pufferfish"
+                }
+            },
+            {
+                "when": "who_that_fishemon",
+                "model": {
+                    "type": "minecraft:model",
+                    "model": "smocraft:item/who_that_fishemon"
+                }
+            },
+            {
+                "when": "clownfish",
+                "model": {
+                    "type": "minecraft:model",
+                    "model": "smocraft:item/clownfish"
+                }
+            },
+            {
+                "when": "handsome_squidward",
+                "model": {
+                    "type": "minecraft:model",
+                    "model": "smocraft:item/handsome_squidward"
+                }
+            },
+            {
+                "when": "catfish",
+                "model": {
+                    "type": "minecraft:model",
+                    "model": "smocraft:item/catfish"
+                }
+            },
+            {
+                "when": "shark",
+                "model": {
+                    "type": "minecraft:model",
+                    "model": "smocraft:item/shark"
+                }
+            },
+            {
+                "when": "red_herring",
+                "model": {
+                    "type": "minecraft:model",
+                    "model": "smocraft:item/red_herring"
+                }
+            },
+            {
+                "when": "hsif",
+                "model": {
+                    "type": "minecraft:model",
+                    "model": "smocraft:item/hsif"
+                }
+            },
+            {
+                "when": "rubber_ducky",
+                "model": {
+                    "type": "minecraft:model",
+                    "model": "smocraft:item/rubber_ducky"
+                }
+            },
+            {
+                "when": "the_great_old_one",
+                "model": {
+                    "type": "minecraft:model",
+                    "model": "smocraft:item/the_great_old_one"
+                }
+            }
+        ]
+    }
+}

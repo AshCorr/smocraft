@@ -3,7 +3,6 @@ package rocks.ashleigh.smocraft.fishing;
 import java.util.List;
 
 import org.bukkit.enchantments.Enchantment;
-import org.bukkit.inventory.ItemStack;
 import org.bukkit.loot.LootContext;
 
 import rocks.ashleigh.smocraft.lib.Lootable;
